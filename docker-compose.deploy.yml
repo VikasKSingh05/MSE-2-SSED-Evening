@@ -2,7 +2,7 @@ name: taskflow-deploy
 
 services:
   frontend:
-    image: ${DOCKERHUB_USERNAME:-vikassingh05}/frontend:latest
+    image: ${DOCKERHUB_USERNAME:-vikasksingh05}/frontend:latest
     ports:
       - "${FRONTEND_PORT:-8080}:80"
     depends_on:
@@ -13,7 +13,7 @@ services:
     restart: unless-stopped
 
   backend:
-    image: ${DOCKERHUB_USERNAME:-vikassingh05}/backend:latest
+    image: ${DOCKERHUB_USERNAME:-vikasksingh05}/backend:latest
     environment:
       PORT: 3000
       DATABASE_URL: postgresql://${POSTGRES_USER:-taskflow_user}:${POSTGRES_PASSWORD:-taskflow_pass}@postgres:5432/${POSTGRES_DB:-taskflow}
