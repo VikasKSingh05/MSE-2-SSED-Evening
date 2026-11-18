@@ -144,7 +144,7 @@ jobs:
         run: |
           sleep 20
           docker compose -f docker-compose.deploy.yml ps
-          RUNNING=$(docker compose -f docker-compose.deploy.yml ps --status running --format json | jq -r '.[].Service' | sort | tr '\n' ' ')
+          RUNNING=$(docker compose -f docker-compose.deploy.yml ps --status running --format json | jq -r '.Service' | sort | tr '\n' ' ')
           echo "Running services: $RUNNING"
           for svc in frontend backend postgres redis; do
             echo "$RUNNING" | grep -qw "$svc" || { echo "Service $svc is not running"; exit 1; }
